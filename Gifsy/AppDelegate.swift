@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    Parse.setLogLevel(PFLogLevel.Info);
+    
+    let config = ParseClientConfiguration(block: {
+        (ParseMutableClientConfiguration) -> Void in
+        
+        ParseMutableClientConfiguration.applicationId = "myAppId";
+        ParseMutableClientConfiguration.clientKey = "myMasterKey";
+        ParseMutableClientConfiguration.server = "http://gifsyapp.com/parse";
+    });
+    
+    Parse.initializeWithConfiguration(config);
+    
+    do {
+        try PFUser.logInWithUsername("test", password: "test")
+    } catch {
+        print(error)
+    }
+    
+    if let currentUser = PFUser.currentUser() {
+        print("\(currentUser.username!) logged in successfully")
+    } else {
+        print("No logged in user :(")
+    }
     
     return true
   }
