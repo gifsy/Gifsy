@@ -52,6 +52,16 @@ class TimelineViewController: UIViewController {
         
         query.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
             self.posts = result as? [Post] ?? []
+            
+            for post in self.posts {
+                do {
+                    let data = try post.imageFile?.getData()
+                    post.image = UIImage(data: data!, scale:1.0)
+                } catch {
+                    print(error)
+                }
+            }
+            
             self.tableView.reloadData()
         }
     }
@@ -69,9 +79,9 @@ extension TimelineViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-        cell.textLabel!.text = "Post"
+        cell.postImageView.image = posts[indexPath.row].image
         
         return cell
     }
