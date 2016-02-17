@@ -30,11 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     PFUser.logInWithUsernameInBackground("test", password: "test") { (user, error) -> Void in
         if error == nil {
-            if let currentUser = PFUser.currentUser() {
-                print("User logged in successfully with username: \(currentUser.username!)")
-            } else {
-                print("User not logged in.")
-            }
+            print("User logged in successfully with username: \(user!.username!)")
         } else {
             print("Error: \(error!.userInfo)")
         }
