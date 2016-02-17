@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Gifsy
 //
-//  Created by Benjamin Encz on 5/15/15.
-//  Copyright (c) 2015 Make School. All rights reserved.
+//  Created by Martin Spier on 2/17/16.
+//  Copyright © 2016 Gifsy. All rights reserved.
 //
 
 import UIKit
