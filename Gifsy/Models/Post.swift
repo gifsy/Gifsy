@@ -8,13 +8,14 @@
 
 import Foundation
 import Parse
+import Bond
 
 class Post : PFObject, PFSubclassing {
     
     @NSManaged var imageFile: PFFile?
     @NSManaged var user: PFUser?
     
-    var image: UIImage?
+    var image: Observable<UIImage?> = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     
     
@@ -37,23 +38,37 @@ class Post : PFObject, PFSubclassing {
     }
     
     func uploadPost() {
-        if let image = image {
-            let imageData = UIImageJPEGRepresentation(image, 0.8)!
-            let imageFile = PFFile(data: imageData)
+        
+        if let image = image.value {
             
-            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+                () -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
             }
             
-            imageFile!.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-            }
+            let imageData = UIImageJPEGRepresentation(image, 0.8)
+            let imageFile = PFFile(data: imageData!)
+            imageFile!.saveInBackgroundWithBlock(nil)
             
-            // any uploaded post should be associated with the current user
             user = PFUser.currentUser()
-            
             self.imageFile = imageFile
-            saveInBackgroundWithBlock(nil)
+            saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+            }
+        }
+    }
+    
+    func downloadImage() {
+        // if image is not downloaded yet, get it
+        if (image.value == nil) {
+            imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let image = UIImage(data: data, scale:1.0)!
+                    // 3
+                    self.image.value = image
+                }
+            }
         }
     }
     
