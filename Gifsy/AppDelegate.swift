@@ -28,17 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     Parse.initializeWithConfiguration(config);
     
-    do {
-        try PFUser.logInWithUsername("test", password: "test")
-    } catch {
-        print(error)
+    PFUser.logInWithUsernameInBackground("test", password: "test") { (user, error) -> Void in
+        if error == nil {
+            if let currentUser = PFUser.currentUser() {
+                print("User logged in successfully with username: \(currentUser.username!)")
+            } else {
+                print("User not logged in.")
+            }
+        } else {
+            print("Error: \(error!.userInfo)")
+        }
     }
     
-    if let currentUser = PFUser.currentUser() {
-        print("\(currentUser.username!) logged in successfully")
-    } else {
-        print("No logged in user :(")
-    }
+    let acl = PFACL()
+    acl.publicReadAccess = true
+    PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
     
     return true
   }
