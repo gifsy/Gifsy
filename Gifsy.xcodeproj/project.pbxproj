@@ -14,6 +14,7 @@
 		147324C51C75086C0082D7A5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147324C41C75086C0082D7A5 /* Post.swift */; };
 		147324CD1C752EE00082D7A5 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147324CC1C752EE00082D7A5 /* ParseHelper.swift */; };
 		147324D31C752F810082D7A5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147324D21C752F810082D7A5 /* PostTableViewCell.swift */; };
+		147324DE1C767FD60082D7A5 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147324DD1C767FD60082D7A5 /* FriendSearchTableViewCell.swift */; };
 		62551B6C1B06BF6D000913E4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B631B06BF6D000913E4 /* Bolts.framework */; };
 		62551B6D1B06BF6D000913E4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */; };
 		62551B6E1B06BF6D000913E4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B651B06BF6D000913E4 /* FBSDKLoginKit.framework */; };
@@ -155,6 +156,7 @@
 		147324C41C75086C0082D7A5 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		147324CC1C752EE00082D7A5 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		147324D21C752F810082D7A5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		147324DD1C767FD60082D7A5 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
 		62551B631B06BF6D000913E4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		62551B651B06BF6D000913E4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -263,6 +265,14 @@
 				147324D21C752F810082D7A5 /* PostTableViewCell.swift */,
 			);
 			path = Timeline;
+			sourceTree = "<group>";
+		};
+		147324D61C767FB20082D7A5 /* FriendSearch */ = {
+			isa = PBXGroup;
+			children = (
+				147324DD1C767FD60082D7A5 /* FriendSearchTableViewCell.swift */,
+			);
+			path = FriendSearch;
 			sourceTree = "<group>";
 		};
 		62551B621B06BF33000913E4 /* Frameworks */ = {
@@ -380,6 +390,7 @@
 		62C8C1E21B06BD6500DC3EA7 /* Gifsy */ = {
 			isa = PBXGroup;
 			children = (
+				147324D61C767FB20082D7A5 /* FriendSearch */,
 				147324D01C752F810082D7A5 /* Views */,
 				147324C31C75084F0082D7A5 /* Models */,
 				147324C01C74EDFB0082D7A5 /* PhotoTaking */,
@@ -609,6 +620,7 @@
 				6277189F1B0A58E800AF5C6E /* ErrorHandling.swift in Sources */,
 				147324A81C73BC890082D7A5 /* TimelineViewController.swift in Sources */,
 				147324C21C74EE240082D7A5 /* PhotoTakingHelper.swift in Sources */,
+				147324DE1C767FD60082D7A5 /* FriendSearchTableViewCell.swift in Sources */,
 				147324AA1C73BCA70082D7A5 /* PhotoViewController.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
