@@ -65,7 +65,6 @@ class Post : PFObject, PFSubclassing {
             imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
                 if let data = data {
                     let image = UIImage(data: data, scale:1.0)!
-                    // 3
                     self.image.value = image
                 }
             }
