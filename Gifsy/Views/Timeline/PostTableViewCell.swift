@@ -12,6 +12,9 @@ import Parse
 
 class PostTableViewCell: UITableViewCell {
     
+    var postDisposable: DisposableType?
+    var likeDisposable: DisposableType?
+    
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likesImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
@@ -28,11 +31,32 @@ class PostTableViewCell: UITableViewCell {
     
     var post: Post? {
         didSet {
+            postDisposable?.dispose()
+            likeDisposable?.dispose()
+            
             if let post = post {
-                // bind the image of the post to the 'postImage' view
-                post.image.bindTo(postImageView.bnd_image)
+                postDisposable = post.image.bindTo(postImageView.bnd_image)
+                likeDisposable = post.likes.observe { (value: [PFUser]?) -> () in
+                    if let value = value {
+                        self.likesLabel.text = self.stringFromUserList(value)
+                        self.likeButton.selected = value.contains(PFUser.currentUser()!)
+                        self.likesImageView.hidden = (value.count == 0)
+                    } else {
+                        self.likesLabel.text = ""
+                        self.likeButton.selected = false
+                        self.likesImageView.hidden = true
+                    }
+                }
             }
         }
+    }
+    
+    // Generates a comma separated list of usernames from an array (e.g. "User1, User2")
+    func stringFromUserList(userList: [PFUser]) -> String {
+        let usernameList = userList.map { user in user.username! }
+        let commaSeparatedUserList = usernameList.joinWithSeparator(", ")
+        
+        return commaSeparatedUserList
     }
     
 }

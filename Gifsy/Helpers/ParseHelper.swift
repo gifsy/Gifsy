@@ -61,7 +61,6 @@ class ParseHelper {
         likeObject[ParseLikeToPost] = post
         
         likeObject.saveInBackgroundWithBlock(nil)
-        
     }
     
     static func unlikePost(user: PFUser, post: Post) {
@@ -81,8 +80,21 @@ class ParseHelper {
     static func likesForPost(post: Post, completionBlock: PFQueryArrayResultBlock) {
         let query = PFQuery(className: ParseLikeClass)
         query.whereKey(ParseLikeToPost, equalTo: post)
+        query.includeKey(ParseLikeFromUser)
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+}
+
+extension PFObject {
+    
+    public override func isEqual(object: AnyObject?) -> Bool {
+        if (object as? PFObject)?.objectId == self.objectId {
+            return true
+        } else {
+            return super.isEqual(object)
+        }
     }
     
 }
