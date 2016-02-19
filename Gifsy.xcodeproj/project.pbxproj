@@ -63,12 +63,6 @@
 		147324EC1C76A28C0082D7A5 /* Gifsy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Gifsy-Bridging-Header.h"; sourceTree = "<group>"; };
 		147324F01C7794EE0082D7A5 /* PostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderView.swift; sourceTree = "<group>"; };
 		14B590B01C77A89500D7D4CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		14B590B21C77A8B600D7D4CC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		14B590B41C77A91D00D7D4CC /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		14B590B61C77A92200D7D4CC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		14B590B81C77A92E00D7D4CC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		14B590BA1C77A93A00D7D4CC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		14B590BC1C77A94E00D7D4CC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		14B590BE1C77AA5A00D7D4CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
@@ -152,12 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				14B590BE1C77AA5A00D7D4CC /* UIKit.framework */,
-				14B590BC1C77A94E00D7D4CC /* Social.framework */,
-				14B590BA1C77A93A00D7D4CC /* MobileCoreServices.framework */,
-				14B590B81C77A92E00D7D4CC /* SystemConfiguration.framework */,
-				14B590B61C77A92200D7D4CC /* CoreLocation.framework */,
-				14B590B41C77A91D00D7D4CC /* Accounts.framework */,
-				14B590B21C77A8B600D7D4CC /* CoreFoundation.framework */,
 				14B590B01C77A89500D7D4CC /* Foundation.framework */,
 				7F4407EE7014D9410AB8EFA1 /* Pods_Gifsy.framework */,
 			);
