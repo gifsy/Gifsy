@@ -164,7 +164,9 @@ extension FriendSearchViewController: FriendSearchTableViewCellDelegate {
         if var followingUsers = followingUsers {
             ParseHelper.removeFollowRelationshipFromUser(PFUser.currentUser()!, toUser: user)
             // update local cache
-            removeObject(user, fromArray: &followingUsers)
+            if let index = followingUsers.indexOf(user) {
+                followingUsers.removeAtIndex(index)
+            }
             self.followingUsers = followingUsers
         }
     }
