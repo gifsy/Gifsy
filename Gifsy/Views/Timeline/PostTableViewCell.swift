@@ -31,11 +31,17 @@ class PostTableViewCell: UITableViewCell {
     
     var post: Post? {
         didSet {
+            
             postDisposable?.dispose()
             likeDisposable?.dispose()
+            // free memory of image stored with post that is no longer displayed
+            if let oldValue = oldValue where oldValue != post {
+                oldValue.image.value = nil
+            }
             
             if let post = post {
                 postDisposable = post.image.bindTo(postImageView.bnd_image)
+                
                 likeDisposable = post.likes.observe { (value: [PFUser]?) -> () in
                     if let value = value {
                         self.likesLabel.text = self.stringFromUserList(value)
