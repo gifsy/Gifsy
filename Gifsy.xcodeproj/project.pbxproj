@@ -16,7 +16,6 @@
 		147324D31C752F810082D7A5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147324D21C752F810082D7A5 /* PostTableViewCell.swift */; };
 		147324DE1C767FD60082D7A5 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147324DD1C767FD60082D7A5 /* FriendSearchTableViewCell.swift */; };
 		147324F11C7794EE0082D7A5 /* PostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147324F01C7794EE0082D7A5 /* PostSectionHeaderView.swift */; };
-		14B590B11C77A89500D7D4CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B590B01C77A89500D7D4CC /* Foundation.framework */; };
 		14B590BF1C77AA5A00D7D4CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B590BE1C77AA5A00D7D4CC /* UIKit.framework */; };
 		42FF64212730C2DB4534C68B /* Pods_Gifsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4407EE7014D9410AB8EFA1 /* Pods_Gifsy.framework */; };
 		6277189F1B0A58E800AF5C6E /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */; };
@@ -62,7 +61,6 @@
 		147324DD1C767FD60082D7A5 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
 		147324EC1C76A28C0082D7A5 /* Gifsy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Gifsy-Bridging-Header.h"; sourceTree = "<group>"; };
 		147324F01C7794EE0082D7A5 /* PostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderView.swift; sourceTree = "<group>"; };
-		14B590B01C77A89500D7D4CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		14B590BE1C77AA5A00D7D4CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B590BF1C77AA5A00D7D4CC /* UIKit.framework in Frameworks */,
-				14B590B11C77A89500D7D4CC /* Foundation.framework in Frameworks */,
 				42FF64212730C2DB4534C68B /* Pods_Gifsy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				14B590BE1C77AA5A00D7D4CC /* UIKit.framework */,
-				14B590B01C77A89500D7D4CC /* Foundation.framework */,
 				7F4407EE7014D9410AB8EFA1 /* Pods_Gifsy.framework */,
 			);
 			name = Frameworks;
