@@ -8,3 +8,4 @@
 
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <DateTools/DateTools.h>
+#import <Giphy_iOS/AXCGiphy.h>

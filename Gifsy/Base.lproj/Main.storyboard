@@ -167,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="191" y="559"/>
         </scene>
-        <!--Photo View Controller-->
+        <!--Gif View Controller-->
         <scene sceneID="Bnd-IW-n72">
             <objects>
-                <viewController id="jjR-dD-ybY" customClass="PhotoViewController" customModule="Gifsy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jjR-dD-ybY" customClass="GifViewController" customModule="Gifsy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Jf-yz-qEl"/>
                         <viewControllerLayoutGuide type="bottom" id="9RL-VO-ggv"/>
@@ -178,15 +178,64 @@
                     <view key="view" contentMode="scaleToFill" id="FxH-Ca-F1j">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0E-l7-Gxz">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jjR-dD-ybY" id="nut-6H-9Ar"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EHr-Nj-l0V">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GifCell" id="DYq-nc-elM" customClass="GifSearchTableViewCell" customModule="Gifsy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DYq-nc-elM" id="Ci5-iC-z9T">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3h2-Ne-dW6">
+                                                    <rect key="frame" x="14" y="11" width="478" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Vn1-OM-esj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3h2-Ne-dW6" firstAttribute="centerY" secondItem="Ci5-iC-z9T" secondAttribute="centerY" id="1mk-pn-vFa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3h2-Ne-dW6" secondAttribute="trailing" constant="100" id="EMv-us-Pga"/>
+                                                <constraint firstItem="3h2-Ne-dW6" firstAttribute="leading" secondItem="Ci5-iC-z9T" secondAttribute="leadingMargin" constant="6" id="ufS-0b-VYn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gifLabel" destination="3h2-Ne-dW6" id="ijN-uM-2DO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jjR-dD-ybY" id="6DV-w3-ExO"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Camera" id="huN-cH-FV5">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchBar" destination="H0E-l7-Gxz" id="Bb9-Qh-6tv"/>
+                        <outlet property="tableView" destination="EHr-Nj-l0V" id="qs7-sZ-h73"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piT-ia-nyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="-134"/>
+            <point key="canvasLocation" x="191" y="-117"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ODi-H8-Vkb">

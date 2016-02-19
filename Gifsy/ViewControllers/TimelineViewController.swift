@@ -14,29 +14,15 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var photoTakingHelper: PhotoTakingHelper?
-    
     let defaultRange = 0...4
     let additionalRangeSize = 5
     
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
-
-    func takePhoto() {
-        // instantiate photo taking class, provide callback for when photo is selected
-        photoTakingHelper =
-            PhotoTakingHelper(viewController: self.tabBarController!) { (image: UIImage?) in
-                let post = Post()
-                post.image.value = image!
-                post.uploadPost()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         timelineComponent = TimelineComponent(target: self)
-        
-        self.tabBarController?.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -108,15 +94,3 @@ extension TimelineViewController: UITableViewDataSource {
     
 }
 
-// MARK: Tab Bar Delegate
-
-extension TimelineViewController: UITabBarControllerDelegate {
-    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        if (viewController is PhotoViewController) {
-            takePhoto()
-            return false
-        } else {
-            return true
-        }
-    }
-}
