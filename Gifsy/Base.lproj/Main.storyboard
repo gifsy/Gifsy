@@ -179,7 +179,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0E-l7-Gxz">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="H0E-l7-Gxz">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -224,6 +224,11 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H0E-l7-Gxz" firstAttribute="leading" secondItem="FxH-Ca-F1j" secondAttribute="leading" id="Xve-ca-WZG"/>
+                            <constraint firstAttribute="trailing" secondItem="H0E-l7-Gxz" secondAttribute="trailing" id="daU-AG-bDw"/>
+                            <constraint firstItem="H0E-l7-Gxz" firstAttribute="top" secondItem="FxH-Ca-F1j" secondAttribute="top" constant="20" id="uao-9h-jtn"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Camera" id="huN-cH-FV5">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
