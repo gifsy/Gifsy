@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  Gifsy
@@ -11,6 +12,7 @@ import Parse
 import FBSDKCoreKit
 import ParseUI
 import ParseFacebookUtilsV4
+import Giphy_iOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -57,6 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // check if we have logged in user
         let user = PFUser.currentUser()
+        
+        // Set Giphy API Key
+        AXCGiphy.setGiphyAPIKey("dc6zaTOxFJmzC")
         
         let startViewController: UIViewController;
         
