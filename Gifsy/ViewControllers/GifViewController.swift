@@ -12,7 +12,7 @@ import Giphy_iOS
 class GifViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var searchResults: [AXCGiphy]?
     
@@ -25,7 +25,7 @@ class GifViewController: UIViewController {
     func updateSearchResults(results: [AnyObject]?, error: NSError?) {
         
         if let error = error {
-            if error.code == -1 { // Giphy throws an exception in case no results were found. 
+            if error.code == -1 { // Giphy throws an exception in case no results were found.
                  self.searchResults = []
             } else {
                 ErrorHandling.defaultErrorHandler(error)
@@ -35,21 +35,22 @@ class GifViewController: UIViewController {
         self.searchResults = results as? [AXCGiphy] ?? []
         
         NSOperationQueue.mainQueue().addOperationWithBlock({() -> Void in
-            self.tableView.reloadData()
+            self.collectionView.reloadData()
         })
     }
 }
 
 // MARK: TableView Data Source
 
-extension GifViewController: UITableViewDataSource {
+extension GifViewController: UICollectionViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.searchResults?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GifCell") as! GifSearchTableViewCell
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GifCell", forIndexPath: indexPath) as! GifSearchCollectionViewCell
         
         let gif = searchResults![indexPath.row]
         cell.gif = gif
