@@ -25,7 +25,11 @@ class GifViewController: UIViewController {
     func updateSearchResults(results: [AnyObject]?, error: NSError?) {
         
         if let error = error {
-            ErrorHandling.defaultErrorHandler(error)
+            if error.code == -1 { // Giphy throws an exception in case no results were found. 
+                 self.searchResults = []
+            } else {
+                ErrorHandling.defaultErrorHandler(error)
+            }
         }
         
         self.searchResults = results as? [AXCGiphy] ?? []

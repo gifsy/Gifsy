@@ -22,11 +22,14 @@ struct ErrorHandling {
     This default error handler presents an Alert View on the topmost View Controller 
   */
   static func defaultErrorHandler(error: NSError) {
-    let alert = UIAlertController(title: ErrorTitle, message: ErrorDefaultMessage, preferredStyle: UIAlertControllerStyle.Alert)
-    alert.addAction(UIAlertAction(title: ErrorOKButtonTitle, style: UIAlertActionStyle.Default, handler: nil))
+    dispatch_async(dispatch_get_main_queue(),{
+        let alert = UIAlertController(title: ErrorTitle, message: ErrorDefaultMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: ErrorOKButtonTitle, style: UIAlertActionStyle.Default, handler: nil))
+        
+        let window = UIApplication.sharedApplication().windows[0]
+        window.rootViewController?.presentViewControllerFromTopViewController(alert, animated: true, completion: nil)
+    })
     
-    let window = UIApplication.sharedApplication().windows[0] 
-    window.rootViewController?.presentViewControllerFromTopViewController(alert, animated: true, completion: nil)
   }
   
   /** 
