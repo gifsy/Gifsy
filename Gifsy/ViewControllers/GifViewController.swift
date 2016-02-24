@@ -77,3 +77,13 @@ extension GifViewController: UISearchBarDelegate {
         AXCGiphy.searchGiphyWithTerm(searchText, limit: 10, offset: 0, completion: updateSearchResults)
     }
 }
+
+// MARK: Collection View Delegate
+
+extension GifViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath)
+    }
+
+}
