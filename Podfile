@@ -9,9 +9,10 @@ target 'Gifsy' do
 	pod 'ParseUI'
 	pod 'ParseFacebookUtilsV4', '~>1.11.0'
 	pod 'Bond'
-	pod "ConvenienceKit"
-	pod "Giphy-iOS"
+	pod 'ConvenienceKit'
+	pod 'Giphy-iOS'
 	pod 'AFNetworking/Serialization', '~> 2.3.1'
+	pod 'FMMosaicLayout'
 end
 
 target 'GifsyTests' do
