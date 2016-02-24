@@ -18,6 +18,7 @@
 		14B590BF1C77AA5A00D7D4CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B590BE1C77AA5A00D7D4CC /* UIKit.framework */; };
 		14B590C31C77C1B900D7D4CC /* GifSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B590C21C77C1B900D7D4CC /* GifSearchCollectionViewCell.swift */; };
 		14B590C71C7D257E00D7D4CC /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B590C61C7D257E00D7D4CC /* UIImage+Gif.swift */; };
+		14B590C91C7D3A1200D7D4CC /* PostGifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B590C81C7D3A1200D7D4CC /* PostGifViewController.swift */; };
 		42FF64212730C2DB4534C68B /* Pods_Gifsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4407EE7014D9410AB8EFA1 /* Pods_Gifsy.framework */; };
 		6277189F1B0A58E800AF5C6E /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */; };
 		627718A01B0A58E800AF5C6E /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */; };
@@ -64,6 +65,7 @@
 		14B590BE1C77AA5A00D7D4CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		14B590C21C77C1B900D7D4CC /* GifSearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		14B590C61C7D257E00D7D4CC /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		14B590C81C7D3A1200D7D4CC /* PostGifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGifViewController.swift; sourceTree = "<group>"; };
 		6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		62C8C1E01B06BD6500DC3EA7 /* Gifsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gifsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				147324A71C73BC890082D7A5 /* TimelineViewController.swift */,
 				147324A91C73BCA70082D7A5 /* GifViewController.swift */,
 				147324AB1C73BCBD0082D7A5 /* FriendSearchViewController.swift */,
+				14B590C81C7D3A1200D7D4CC /* PostGifViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147324C51C75086C0082D7A5 /* Post.swift in Sources */,
+				14B590C91C7D3A1200D7D4CC /* PostGifViewController.swift in Sources */,
 				147324D31C752F810082D7A5 /* PostTableViewCell.swift in Sources */,
 				147324AC1C73BCBD0082D7A5 /* FriendSearchViewController.swift in Sources */,
 				627718A01B0A58E800AF5C6E /* ParseLoginHelper.swift in Sources */,

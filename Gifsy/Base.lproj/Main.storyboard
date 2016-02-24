@@ -268,6 +268,38 @@
             </objects>
             <point key="canvasLocation" x="-629" y="197"/>
         </scene>
+        <!--Post Gif View Controller-->
+        <scene sceneID="2e2-BI-Gre">
+            <objects>
+                <viewController storyboardIdentifier="PostGifViewController" id="tE0-RH-hhj" customClass="PostGifViewController" customModule="Gifsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O1W-7w-yMJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="m6X-sH-qy2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qj8-cw-mAc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-D9-g7c">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m6X-sH-qy2" firstAttribute="top" secondItem="LNV-D9-g7c" secondAttribute="bottom" id="2qw-Ve-DzD"/>
+                            <constraint firstItem="LNV-D9-g7c" firstAttribute="leading" secondItem="Qj8-cw-mAc" secondAttribute="leading" id="Suq-uI-3dT"/>
+                            <constraint firstAttribute="trailing" secondItem="LNV-D9-g7c" secondAttribute="trailing" id="iOn-po-Tm5"/>
+                            <constraint firstItem="LNV-D9-g7c" firstAttribute="top" secondItem="O1W-7w-yMJ" secondAttribute="bottom" id="sf3-kP-Wfc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="LNV-D9-g7c" id="XPZ-j5-clF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9G-5U-NBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="-585"/>
+        </scene>
         <!--Friend Search View Controller-->
         <scene sceneID="iIB-Qx-tk7">
             <objects>
