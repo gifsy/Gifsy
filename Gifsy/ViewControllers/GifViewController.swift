@@ -16,6 +16,20 @@ class GifViewController: UIViewController {
     
     var searchResults: [AXCGiphy]?
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        assert(sender as? UICollectionViewCell != nil, "Sender is not a collection view.")
+        
+        if let indexPath = self.collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
+            if segue.identifier == "selectGif" {
+                let viewController: PostGifViewController = segue.destinationViewController as! PostGifViewController
+                let gif = searchResults![indexPath.row]
+                viewController.gif = gif
+            }
+        } else {
+            // Error sender is not a cell or cell is not in collectionView.
+        }
+    }
+    
     // MARK: Update search result list
     
     /**
@@ -83,7 +97,7 @@ extension GifViewController: UISearchBarDelegate {
 extension GifViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath)
+        // Doing nothing.
     }
 
 }

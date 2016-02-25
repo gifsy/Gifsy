@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8G-8S-69A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="559"/>
+            <point key="canvasLocation" x="357" y="107"/>
         </scene>
         <!--Gif View Controller-->
         <scene sceneID="Bnd-IW-n72">
@@ -217,6 +217,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="SxR-SJ-Quk" id="QWW-p0-Rm6"/>
+                                            <segue destination="tE0-RH-hhj" kind="show" identifier="selectGif" id="ozz-Aa-vZc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -247,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piT-ia-nyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="-117"/>
+            <point key="canvasLocation" x="357" y="-681"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ODi-H8-Vkb">
@@ -266,7 +267,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghw-db-8h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-629" y="197"/>
+            <point key="canvasLocation" x="-553" y="107"/>
         </scene>
         <!--Post Gif View Controller-->
         <scene sceneID="2e2-BI-Gre">
@@ -298,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9G-5U-NBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="-585"/>
+            <point key="canvasLocation" x="1185" y="-681"/>
         </scene>
         <!--Friend Search View Controller-->
         <scene sceneID="iIB-Qx-tk7">
@@ -396,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syj-OV-0Wi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914" y="197"/>
+            <point key="canvasLocation" x="357" y="1045"/>
         </scene>
     </scenes>
     <resources>
