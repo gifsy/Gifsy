@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Timeline View Controller-->
+        <!--Timeline-->
         <scene sceneID="rjM-CA-kE7">
             <objects>
                 <viewController id="OEU-Ur-9qt" customClass="TimelineViewController" customModule="Gifsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -156,9 +156,7 @@
                             <constraint firstAttribute="trailing" secondItem="wmB-9U-WVg" secondAttribute="trailing" id="nPg-q0-vxm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Home" id="Bha-5r-437">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Timeline" image="Home" id="Bha-5r-437"/>
                     <connections>
                         <outlet property="tableView" destination="wmB-9U-WVg" id="1al-Xh-DoH"/>
                     </connections>
@@ -167,7 +165,7 @@
             </objects>
             <point key="canvasLocation" x="357" y="107"/>
         </scene>
-        <!--Gif View Controller-->
+        <!--Share-->
         <scene sceneID="Bnd-IW-n72">
             <objects>
                 <viewController id="jjR-dD-ybY" customClass="GifViewController" customModule="Gifsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -238,9 +236,7 @@
                             <constraint firstItem="H0E-l7-Gxz" firstAttribute="top" secondItem="FxH-Ca-F1j" secondAttribute="top" constant="20" id="uao-9h-jtn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Camera" id="huN-cH-FV5">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Share" image="Camera" id="huN-cH-FV5"/>
                     <connections>
                         <outlet property="collectionView" destination="abQ-lW-BTr" id="6cc-h9-JOi"/>
                         <outlet property="searchBar" destination="H0E-l7-Gxz" id="Bb9-Qh-6tv"/>
@@ -281,16 +277,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-D9-g7c">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPf-aX-BHQ">
+                                <rect key="frame" x="0.0" y="501" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LKs-na-rZs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="SHARE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfs-Mh-AL9">
+                                <rect key="frame" x="20" y="20" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Iv5-7u-Gxf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-D9-g7c">
+                                <rect key="frame" x="0.0" y="50" width="600" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="d8J-KB-6hp"/>
+                                </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write a caption ..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3kF-Lg-dCl">
+                                <rect key="frame" x="20" y="420" width="560" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yfn-2i-Que"/>
+                                </constraints>
+                                <color key="textColor" red="0.4910057276" green="0.51450693280000004" blue="0.53761180190000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="m6X-sH-qy2" firstAttribute="top" secondItem="LNV-D9-g7c" secondAttribute="bottom" id="2qw-Ve-DzD"/>
+                            <constraint firstItem="PPf-aX-BHQ" firstAttribute="leading" secondItem="Qj8-cw-mAc" secondAttribute="leading" id="Ecu-VB-rGp"/>
+                            <constraint firstItem="Cfs-Mh-AL9" firstAttribute="top" secondItem="O1W-7w-yMJ" secondAttribute="bottom" id="Ky3-4U-qrq"/>
+                            <constraint firstItem="m6X-sH-qy2" firstAttribute="top" secondItem="PPf-aX-BHQ" secondAttribute="bottom" id="Lyh-v9-KfF"/>
                             <constraint firstItem="LNV-D9-g7c" firstAttribute="leading" secondItem="Qj8-cw-mAc" secondAttribute="leading" id="Suq-uI-3dT"/>
+                            <constraint firstItem="LNV-D9-g7c" firstAttribute="top" secondItem="Cfs-Mh-AL9" secondAttribute="bottom" id="VqV-CG-cPC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cfs-Mh-AL9" secondAttribute="trailing" id="Y2Q-W9-ll6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3kF-Lg-dCl" secondAttribute="trailing" id="YDR-ck-zrj"/>
                             <constraint firstAttribute="trailing" secondItem="LNV-D9-g7c" secondAttribute="trailing" id="iOn-po-Tm5"/>
-                            <constraint firstItem="LNV-D9-g7c" firstAttribute="top" secondItem="O1W-7w-yMJ" secondAttribute="bottom" id="sf3-kP-Wfc"/>
+                            <constraint firstAttribute="trailing" secondItem="PPf-aX-BHQ" secondAttribute="trailing" id="jYD-Ah-28v"/>
+                            <constraint firstItem="3kF-Lg-dCl" firstAttribute="leading" secondItem="Qj8-cw-mAc" secondAttribute="leadingMargin" id="lRl-gi-ZZ8"/>
+                            <constraint firstItem="Cfs-Mh-AL9" firstAttribute="leading" secondItem="Qj8-cw-mAc" secondAttribute="leadingMargin" id="pqE-IU-hl8"/>
+                            <constraint firstItem="3kF-Lg-dCl" firstAttribute="top" secondItem="LNV-D9-g7c" secondAttribute="bottom" constant="10" id="zIH-Wh-p5b"/>
                         </constraints>
                     </view>
                     <connections>
@@ -299,9 +335,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9G-5U-NBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="-681"/>
+            <point key="canvasLocation" x="1191" y="-681"/>
         </scene>
-        <!--Friend Search View Controller-->
+        <!--Friends-->
         <scene sceneID="iIB-Qx-tk7">
             <objects>
                 <viewController id="Ji0-bo-Bgz" customClass="FriendSearchViewController" customModule="Gifsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -387,9 +423,7 @@
                             <constraint firstItem="XgP-dO-Ct3" firstAttribute="top" secondItem="Hc8-yz-Pjx" secondAttribute="bottom" id="zKa-hP-9PV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="People" id="KCm-Kg-Xbp">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Friends" image="People" id="KCm-Kg-Xbp"/>
                     <connections>
                         <outlet property="searchBar" destination="Hc8-yz-Pjx" id="gEj-9i-zzJ"/>
                         <outlet property="tableView" destination="XgP-dO-Ct3" id="bu8-Dg-YWW"/>
