@@ -303,8 +303,8 @@
                                     <constraint firstAttribute="height" constant="360" id="d8J-KB-6hp"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write a caption ..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3kF-Lg-dCl">
-                                <rect key="frame" x="20" y="420" width="560" height="50"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3kF-Lg-dCl">
+                                <rect key="frame" x="20" y="425" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="yfn-2i-Que"/>
                                 </constraints>
@@ -326,7 +326,7 @@
                             <constraint firstAttribute="trailing" secondItem="PPf-aX-BHQ" secondAttribute="trailing" id="jYD-Ah-28v"/>
                             <constraint firstItem="3kF-Lg-dCl" firstAttribute="leading" secondItem="Qj8-cw-mAc" secondAttribute="leadingMargin" id="lRl-gi-ZZ8"/>
                             <constraint firstItem="Cfs-Mh-AL9" firstAttribute="leading" secondItem="Qj8-cw-mAc" secondAttribute="leadingMargin" id="pqE-IU-hl8"/>
-                            <constraint firstItem="3kF-Lg-dCl" firstAttribute="top" secondItem="LNV-D9-g7c" secondAttribute="bottom" constant="10" id="zIH-Wh-p5b"/>
+                            <constraint firstItem="3kF-Lg-dCl" firstAttribute="top" secondItem="LNV-D9-g7c" secondAttribute="bottom" constant="15" id="zIH-Wh-p5b"/>
                         </constraints>
                     </view>
                     <connections>
