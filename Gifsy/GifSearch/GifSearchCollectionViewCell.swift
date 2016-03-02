@@ -32,7 +32,6 @@ class GifSearchCollectionViewCell: UICollectionViewCell {
     var gif: AXCGiphy? {
         didSet {
             downloadImage(gif!.originalImage.url)
-            //downloadImage(NSURL(string: "http://i.giphy.com/8RczH5vL2k7Ju.gif")!)
         }
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 import ConvenienceKit
 
 class TimelineViewController: UIViewController, TimelineComponentTarget {

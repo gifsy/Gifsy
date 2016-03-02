@@ -287,6 +287,9 @@
                                 <state key="normal" title="SHARE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="tE0-RH-hhj" eventType="touchUpInside" id="qwm-bo-GgI"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfs-Mh-AL9">
                                 <rect key="frame" x="20" y="20" width="560" height="30"/>
@@ -330,7 +333,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="captionTextField" destination="3kF-Lg-dCl" id="skq-Ob-WVO"/>
                         <outlet property="imageView" destination="LNV-D9-g7c" id="XPZ-j5-clF"/>
+                        <outlet property="view" destination="PPf-aX-BHQ" id="eSr-eH-GB8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9G-5U-NBM" userLabel="First Responder" sceneMemberID="firstResponder"/>

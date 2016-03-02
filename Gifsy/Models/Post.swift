@@ -13,16 +13,16 @@ import ConvenienceKit
 
 class Post : PFObject, PFSubclassing {
     
-    @NSManaged var imageFile: PFFile?
     @NSManaged var user: PFUser?
+    @NSManaged var gifUrl: String?
+    @NSManaged var caption: String?
     
     static var imageCache: NSCacheSwift<String, UIImage>!
     
     var image: Observable<UIImage?> = Observable(nil)
     var likes: Observable<[PFUser]?> = Observable(nil)
-    var photoUploadTask: UIBackgroundTaskIdentifier?
     
-    
+    var savePostTask: UIBackgroundTaskIdentifier?
     
     //MARK: PFSubclassing Protocol
     
@@ -43,47 +43,42 @@ class Post : PFObject, PFSubclassing {
         }
     }
     
-    func uploadPost() {
+    func getDataFromUrl(url: String, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: url)!) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+    
+    func savePost() {
+        savePostTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(self.savePostTask!)
+        }
         
-        if let image = image.value {
-            
-            photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
-                () -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+        user = PFUser.currentUser()
+        saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
             }
             
-            let imageData = UIImageJPEGRepresentation(image, 0.8)
-            let imageFile = PFFile(data: imageData!)
-            imageFile!.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
-            
-            user = PFUser.currentUser()
-            self.imageFile = imageFile
-            saveInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
-                if let error = error {
-                    ErrorHandling.defaultErrorHandler(error)
-                }
-                
-                UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-            }
+            UIApplication.sharedApplication().endBackgroundTask(self.savePostTask!)
         }
     }
     
     func downloadImage() {
-        image.value = Post.imageCache[self.imageFile!.name]
+        image.value = Post.imageCache[self.gifUrl!]
         
         // if image is not downloaded yet, get it
         if (image.value == nil) {
             
-            imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
-                if let error = error {
-                    ErrorHandling.defaultErrorHandler(error)
-                }
-                
-                if let data = data {
-                    let image = UIImage(data: data, scale:1.0)!
+            getDataFromUrl(self.gifUrl!) { (data, response, error)  in
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    guard let data = data where error == nil else { return }
+                    
+                    let image = UIImage.gifWithData(data)
                     self.image.value = image
-                    Post.imageCache[self.imageFile!.name] = image
+                    Post.imageCache[self.gifUrl!] = image
+        
                 }
             }
         }

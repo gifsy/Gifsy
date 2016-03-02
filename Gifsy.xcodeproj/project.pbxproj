@@ -64,7 +64,7 @@
 		147324F01C7794EE0082D7A5 /* PostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderView.swift; sourceTree = "<group>"; };
 		14B590BE1C77AA5A00D7D4CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		14B590C21C77C1B900D7D4CC /* GifSearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifSearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		14B590C61C7D257E00D7D4CC /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		14B590C61C7D257E00D7D4CC /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "../GifSearch/UIImage+Gif.swift"; sourceTree = "<group>"; };
 		14B590C81C7D3A1200D7D4CC /* PostGifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGifViewController.swift; sourceTree = "<group>"; };
 		6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				14B590C21C77C1B900D7D4CC /* GifSearchCollectionViewCell.swift */,
-				14B590C61C7D257E00D7D4CC /* UIImage+Gif.swift */,
 			);
 			path = GifSearch;
 			sourceTree = "<group>";
@@ -167,6 +166,7 @@
 		6277189C1B0A58E800AF5C6E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				14B590C61C7D257E00D7D4CC /* UIImage+Gif.swift */,
 				6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */,
 				6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */,
 				147324CC1C752EE00082D7A5 /* ParseHelper.swift */,

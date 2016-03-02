@@ -8,10 +8,19 @@
 
 import UIKit
 import Giphy_iOS
+import Parse
 
 class PostGifViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var captionTextField: UITextField!
+    
+    @IBAction func shareButtonTapped(sender: AnyObject) {
+        let post = Post()
+        post.gifUrl = gif?.originalImage.url.absoluteString
+        post.caption = captionTextField.text
+        post.savePost()
+    }
     
     func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
