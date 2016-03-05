@@ -13,6 +13,7 @@ target 'Gifsy' do
 	pod 'Giphy-iOS'
 	pod 'AFNetworking/Serialization', '~> 2.3.1'
 	pod 'FMMosaicLayout'
+	pod 'Gifu'
 end
 
 target 'GifsyTests' do

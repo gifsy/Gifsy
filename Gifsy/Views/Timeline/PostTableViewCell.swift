@@ -9,13 +9,14 @@
 import UIKit
 import Bond
 import Parse
+import Gifu
 
 class PostTableViewCell: UITableViewCell {
     
     var postDisposable: DisposableType?
     var likeDisposable: DisposableType?
     
-    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postImageView: AnimatableImageView!
     @IBOutlet weak var likesImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
@@ -41,6 +42,10 @@ class PostTableViewCell: UITableViewCell {
             
             if let post = post {
                 postDisposable = post.image.bindTo(postImageView.bnd_image)
+                
+                likeDisposable = post.image.observe { (value: UIImage?) -> () in
+                    postImageView.animateWithImageData(value)
+                }
                 
                 likeDisposable = post.likes.observe { (value: [PFUser]?) -> () in
                     if let value = value {
