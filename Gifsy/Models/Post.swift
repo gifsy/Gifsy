@@ -17,9 +17,9 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var gifUrl: String?
     @NSManaged var caption: String?
     
-    static var imageCache: NSCacheSwift<String, UIImage>!
+    static var imageDataCache: NSCacheSwift<String, NSData>!
     
-    var image: Observable<UIImage?> = Observable(nil)
+    var imageData: Observable<NSData?> = Observable(nil)
     var likes: Observable<[PFUser]?> = Observable(nil)
     
     var savePostTask: UIBackgroundTaskIdentifier?
@@ -39,7 +39,7 @@ class Post : PFObject, PFSubclassing {
         dispatch_once(&onceToken) {
             // inform Parse about this subclass
             self.registerSubclass()
-            Post.imageCache = NSCacheSwift<String, UIImage>()
+            Post.imageDataCache = NSCacheSwift<String, NSData>()
         }
     }
     
@@ -66,18 +66,18 @@ class Post : PFObject, PFSubclassing {
     }
     
     func downloadImage() {
-        image.value = Post.imageCache[self.gifUrl!]
+        imageData.value = Post.imageDataCache[self.gifUrl!]
         
         // if image is not downloaded yet, get it
-        if (image.value == nil) {
+        if (imageData.value == nil) {
             
             getDataFromUrl(self.gifUrl!) { (data, response, error)  in
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     guard let data = data where error == nil else { return }
                     
-                    let image = UIImage.gifWithData(data)
-                    self.image.value = image
-                    Post.imageCache[self.gifUrl!] = image
+                    // let image = UIImage.gifWithData(data)
+                    self.imageData.value = data
+                    Post.imageDataCache[self.gifUrl!] = data
         
                 }
             }
