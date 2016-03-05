@@ -44,7 +44,11 @@ class PostTableViewCell: UITableViewCell {
                 // postDisposable = post.image.bindTo(postImageView.bnd_image)
                 
                 postDisposable = post.imageData.observe { (value: NSData?) -> () in
-                    self.postImageView.animateWithImageData(value!)
+                    if let value = value {
+                        // self.postImageView.animateWithImageData(value)
+                        
+                        self.postImageView.image = UIImage.gifWithData(value)
+                    }
                 }
                 
                 likeDisposable = post.likes.observe { (value: [PFUser]?) -> () in
