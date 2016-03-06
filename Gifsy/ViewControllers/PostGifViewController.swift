@@ -15,11 +15,19 @@ class PostGifViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Share"
+    }
+    
     @IBAction func shareButtonTapped(sender: AnyObject) {
         let post = Post()
         post.gifUrl = gif?.originalImage.url.absoluteString
         post.caption = captionTextField.text
         post.savePost()
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.tabBarController?.selectedIndex = 0
     }
     
     func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {

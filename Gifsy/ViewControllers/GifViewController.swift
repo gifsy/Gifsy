@@ -16,6 +16,19 @@ class GifViewController: UIViewController {
     
     var searchResults: [AXCGiphy]?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Share"
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancel:")
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    }
+    
+    func cancel(sender: UIBarButtonItem) {
+        self.tabBarController?.selectedIndex = 0
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         assert(sender as? UICollectionViewCell != nil, "Sender is not a collection view.")
         
