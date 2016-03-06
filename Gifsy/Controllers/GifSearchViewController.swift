@@ -1,5 +1,5 @@
 //
-//  GifViewController.swift
+//  GifSearchViewController.swift
 //  Gifsy
 //
 //  Created by Martin Spier on 2/16/16.
@@ -9,7 +9,7 @@
 import UIKit
 import Giphy_iOS
 
-class GifViewController: UIViewController {
+class GifSearchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -41,6 +41,10 @@ class GifViewController: UIViewController {
         } else {
             // Error sender is not a cell or cell is not in collectionView.
         }
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        navigationItem.backBarButtonItem = backButton
     }
     
     // MARK: Update search result list
@@ -69,7 +73,7 @@ class GifViewController: UIViewController {
 
 // MARK: TableView Data Source
 
-extension GifViewController: UICollectionViewDataSource {
+extension GifSearchViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.searchResults?.count ?? 0
@@ -88,7 +92,7 @@ extension GifViewController: UICollectionViewDataSource {
 
 // MARK: Searchbar Delegate
 
-extension GifViewController: UISearchBarDelegate {
+extension GifSearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
@@ -107,7 +111,7 @@ extension GifViewController: UISearchBarDelegate {
 
 // MARK: Collection View Delegate
 
-extension GifViewController: UICollectionViewDelegate {
+extension GifSearchViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // Doing nothing.
