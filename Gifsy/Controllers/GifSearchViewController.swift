@@ -15,6 +15,7 @@ class GifSearchViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var searchResults: [AXCGiphy]?
+    var debounceTimer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +95,13 @@ extension GifSearchViewController: UICollectionViewDataSource {
 
 extension GifSearchViewController: UISearchBarDelegate {
     
+    func searchGif(timer: NSTimer) {
+        let term = timer.userInfo!["searchText"] as! String
+        if term.characters.count >= 3 {
+            AXCGiphy.searchGiphyWithTerm(term, limit: 10, offset: 0, completion: updateSearchResults)
+        }
+    }
+    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
@@ -105,8 +113,16 @@ extension GifSearchViewController: UISearchBarDelegate {
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        AXCGiphy.searchGiphyWithTerm(searchText, limit: 10, offset: 0, completion: updateSearchResults)
+        let userInfo:[String:String] = ["searchText":searchText]
+        
+        if let timer = debounceTimer {
+            timer.invalidate()
+        }
+        
+        debounceTimer = NSTimer(timeInterval: 1.5, target: self, selector: Selector("searchGif:"), userInfo: userInfo, repeats: false)
+        NSRunLoop.currentRunLoop().addTimer(debounceTimer!, forMode: "NSDefaultRunLoopMode")
     }
+    
 }
 
 // MARK: Collection View Delegate
